@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Aurelia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body aurelia-app="app/main">
+  <a href="index.html">index</a>
+  <a href="index2.html">index2</a>
+  <a href="index3.html">index3</a>
+
+  <test-element value="index2"></test-element>
+
+  <script src="wwwroot/dist/vendor-bundle.js"></script>
+  <script>SystemJS.import("aurelia-bootstrapper").catch(function (err) { console.log(err); })</script>
+</body>
+
+</html>
