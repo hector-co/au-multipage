@@ -12,7 +12,7 @@
         "displayName": "Web",
         "index": "index.html",
         "baseDir": ".",
-        "output": "wwwroot/dist"
+        "output": "wwwroot/scripts"
       }
     ],
     "options": {
@@ -108,7 +108,7 @@
     "displayName": "Web",
     "index": "index.html",
     "baseDir": ".",
-    "output": "wwwroot/dist"
+    "output": "wwwroot/scripts"
   },
   "transpiler": {
     "id": "typescript",
@@ -118,21 +118,20 @@
       "./custom_typings/**/*.d.ts"
     ],
     "source": [
-      "wwwroot/environment.ts",
-      "wwwroot/app/**/*.ts"
+      "app/**/*.ts"
     ]
   },
   "markupProcessor": {
     "id": "minimum",
     "displayName": "Minimal Minification",
     "fileExtension": ".html",
-    "source": "wwwroot/app/**/*.html"
+    "source": "app/**/*.html"
   },
   "cssProcessor": {
     "id": "sass",
     "displayName": "Sass",
     "fileExtension": ".scss",
-    "source": "wwwroot/app/**/*.scss"
+    "source": "app/**/*.scss"
   },
   "editor": {
     "id": "vscode",
@@ -143,11 +142,11 @@
     "displayName": "None"
   },
   "paths": {
-    "root": "wwwroot",
-    "resources": "app",
-    "elements": "app/elements",
-    "attributes": "app/attributes",
-    "valueConverters": "app/value-converters",
-    "bindingBehaviors": "app/binding-behaviors"
+    "root": "app",
+    "resources": "",
+    "elements": "elements",
+    "attributes": "attributes",
+    "valueConverters": "value-converters",
+    "bindingBehaviors": "binding-behaviors"
   }
 }

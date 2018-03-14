@@ -1,5 +1,5 @@
 import { Aurelia, PLATFORM, FrameworkConfiguration } from 'aurelia-framework'
-import environment from '../environment';
+import environment from './environment';
 
 export async function configure(aurelia: Aurelia) {
   aurelia.use
@@ -20,5 +20,5 @@ export async function configure(aurelia: Aurelia) {
 }
 
 export function configureResources(config: FrameworkConfiguration) {
-  config.globalResources([PLATFORM.moduleName('app/elements/test-element')]);
+  config.globalResources([PLATFORM.moduleName('elements/test-element')]);
 }
