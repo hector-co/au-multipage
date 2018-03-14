@@ -101,6 +101,13 @@
           "stub": true
         }
       ]
+    },
+    "copyFiles": {
+      "node_modules/foundation-sites/dist/css/foundation.css": "wwwroot/lib/foundation-sites/css",
+      "node_modules/font-awesome/css/font-awesome.css": "wwwroot/lib/font-awesome/css",
+      "node_modules/font-awesome/fonts/fontawesome-webfont.ttf": "wwwroot/lib/font-awesome/fonts",
+      "node_modules/font-awesome/fonts/fontawesome-webfont.woff": "wwwroot/lib/font-awesome/fonts",
+      "node_modules/font-awesome/fonts/fontawesome-webfont.woff2": "wwwroot/lib/font-awesome/fonts"
     }
   },
   "platform": {
@@ -118,20 +125,20 @@
       "./custom_typings/**/*.d.ts"
     ],
     "source": [
-      "app/**/*.ts"
+      "aurelia_resources/**/*.ts"
     ]
   },
   "markupProcessor": {
     "id": "minimum",
     "displayName": "Minimal Minification",
     "fileExtension": ".html",
-    "source": "app/**/*.html"
+    "source": "aurelia_resources/**/*.html"
   },
   "cssProcessor": {
     "id": "sass",
     "displayName": "Sass",
     "fileExtension": ".scss",
-    "source": "app/**/*.scss"
+    "source": "aurelia_resources/**/*.scss"
   },
   "editor": {
     "id": "vscode",
@@ -142,7 +149,7 @@
     "displayName": "None"
   },
   "paths": {
-    "root": "app",
+    "root": "aurelia_resources",
     "resources": "",
     "elements": "elements",
     "attributes": "attributes",

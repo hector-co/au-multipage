@@ -25,3 +25,4 @@ node_modules
 
 # Compiled files
 wwwroot/scripts
+wwwroot/lib
