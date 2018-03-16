@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <title>Aurelia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="wwwroot/lib/foundation-sites/css/foundation.css">
+  <link rel="stylesheet" href="wwwroot/lib/font-awesome/css/font-awesome.css">
 </head>
 
 <body aurelia-app="main">
@@ -14,8 +16,22 @@
 
   <test-element value="index2"></test-element>
 
+  <af-input label="test element" inline="small-3, small-9"></af-input>
+  <af-input label="test element"></af-input>
+
+  <button id="btn1">click</button>
+
   <script src="wwwroot/scripts/vendor-bundle.js"></script>
   <script>SystemJS.import("aurelia-bootstrapper").catch(function (err) { console.log(err); })</script>
+
+  <script>
+    var value = '1';
+
+    var btn1 = document.getElementById('btn1');
+    btn1.addEventListener('click', function () {
+      console.log(value);
+    });
+  </script>
 </body>
 
 </html>
