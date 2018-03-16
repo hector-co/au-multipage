@@ -1,0 +1,10 @@
+<template>
+  <label for.bind="inputId">
+    ${label}
+    <small show.bind="required" style="color: #CC4B37">
+      <i>${requiredText}</i>
+    </small>
+  </label>
+  <input id.bind="inputId" type="text" value.bind="value" placeholder.bind="placeholder">
+  <!-- <span for.bind="inputId" class="form-error is-visible">Yo, you had better fill this out, it's required. </span> -->
+</template>

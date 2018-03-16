@@ -2,7 +2,8 @@ import { Aurelia, PLATFORM, FrameworkConfiguration } from 'aurelia-framework'
 import environment from './environment';
 
 let elements = [
-  { name: 'test-element', selector: 'test-element' }
+  { name: 'test-element', selector: 'test-element' },
+  { name: 'af-input', selector: 'af-input' }
 ];
 
 export async function configure(aurelia: Aurelia) {
@@ -21,11 +22,7 @@ export async function configure(aurelia: Aurelia) {
 
   await aurelia.use.apply();
 
-  elements.forEach(e => {
-    var domElements = document.querySelectorAll(e.selector);
-    for (var i = 0; i < domElements.length; i++)
-      aurelia.enhance(domElements[i]);
-  });
+  aurelia.enhance();
 }
 
 export function configureResources(config: FrameworkConfiguration) {
