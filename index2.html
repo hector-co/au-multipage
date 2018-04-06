@@ -10,6 +10,20 @@
 </head>
 
 <body aurelia-app="main">
+
+  <script>
+    var Object1 = function () {
+      this.value = 'value 1';
+    }
+
+    var value = new Object1();
+
+    var btn1 = document.getElementById('btn1');
+    btn1.addEventListener('click', function () {
+      console.log(value);
+    });
+  </script>
+
   <a href="index.html">index</a>
   <a href="index2.html">index2</a>
   <a href="index3.html">index3</a>
@@ -18,20 +32,12 @@
 
   <af-input label="test element" inline="small-3, small-9"></af-input>
   <af-input label="test element"></af-input>
+  <test-element value="value.value"></test-element>
 
   <button id="btn1">click</button>
 
   <script src="wwwroot/scripts/vendor-bundle.js"></script>
   <script>SystemJS.import("aurelia-bootstrapper").catch(function (err) { console.log(err); })</script>
-
-  <script>
-    var value = '1';
-
-    var btn1 = document.getElementById('btn1');
-    btn1.addEventListener('click', function () {
-      console.log(value);
-    });
-  </script>
 </body>
 
 </html>

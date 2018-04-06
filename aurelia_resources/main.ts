@@ -1,4 +1,5 @@
-import { Aurelia, PLATFORM, FrameworkConfiguration } from 'aurelia-framework'
+import { Aurelia, PLATFORM, FrameworkConfiguration, TemplatingEngine, EnhanceInstruction } from 'aurelia-framework'
+import { bootstrap } from "aurelia-bootstrapper";
 import environment from './environment';
 
 let elements = [
@@ -6,7 +7,11 @@ let elements = [
   { name: 'af-input', selector: 'af-input' }
 ];
 
+let aureliaInstance: Aurelia;
+
 export async function configure(aurelia: Aurelia) {
+  aureliaInstance = aurelia;
+
   aurelia.use
     .basicConfiguration();
 
@@ -16,16 +21,27 @@ export async function configure(aurelia: Aurelia) {
     aurelia.use.developmentLogging();
   }
 
-  if (environment.testing) {
-    aurelia.use.plugin('aurelia-testing');
-  }
-
   await aurelia.use.apply();
 
-  aurelia.enhance();
+  // enhanceElements(['test-element']);
 }
 
-export function configureResources(config: FrameworkConfiguration) {
+export function enhanceElements(elements: { tagName: string, bindingContext: any }[]) {
+  elements.forEach(element => {
+    var elements = document.getElementsByTagName(element.tagName);
+    for (var i = 0; i < elements.length; i++) {
+      enhanceElement(elements[i]);
+    }
+  });
+}
+
+let enhanceElement = function (element: Element, bindingContext = null) {
+  let engine = aureliaInstance.container.get(TemplatingEngine);
+  let component = engine.enhance({ container: aureliaInstance.container, element: element, resources: aureliaInstance.resources, bindingContext: bindingContext });
+  component.attached();
+}
+
+let configureResources = function (config: FrameworkConfiguration) {
   config.globalResources(
     elements.map(e => PLATFORM.moduleName(`elements/${e.name}`))
   );
