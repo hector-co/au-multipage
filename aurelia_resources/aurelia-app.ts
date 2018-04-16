@@ -22,15 +22,13 @@ export async function configure(aurelia: Aurelia) {
   }
 
   await aurelia.use.apply();
-
-  // enhanceElements(['test-element']);
 }
 
-export function enhanceElements(elements: { tagName: string, bindingContext: any }[]) {
-  elements.forEach(element => {
+export function enhanceElements(instructions: { tagName: string, bindingContext: any }[]) {
+  instructions.forEach(element => {
     var elements = document.getElementsByTagName(element.tagName);
     for (var i = 0; i < elements.length; i++) {
-      enhanceElement(elements[i]);
+      enhanceElement(elements[i], instructions[i].bindingContext);
     }
   });
 }
@@ -38,7 +36,6 @@ export function enhanceElements(elements: { tagName: string, bindingContext: any
 let enhanceElement = function (element: Element, bindingContext = null) {
   let engine = aureliaInstance.container.get(TemplatingEngine);
   let component = engine.enhance({ container: aureliaInstance.container, element: element, resources: aureliaInstance.resources, bindingContext: bindingContext });
-  component.attached();
 }
 
 let configureResources = function (config: FrameworkConfiguration) {

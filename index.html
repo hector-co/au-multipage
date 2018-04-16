@@ -9,16 +9,30 @@
   <link rel="stylesheet" href="wwwroot/lib/font-awesome/css/font-awesome.css">
 </head>
 
-<body aurelia-app="main">
+<body aurelia-app="aurelia-app">
   <a href="index.html">index</a>
   <a href="index2.html">index2</a>
   <a href="index3.html">index3</a>
 
-  <test-element value="index"></test-element>
+  <test-element></test-element>
   <af-input label="test element" inline="small-3, small-9"></af-input>
 
   <script src="wwwroot/scripts/vendor-bundle.js"></script>
-  <script>SystemJS.import("aurelia-bootstrapper").catch(function (err) { console.log(err); })</script>
+  <script>
+    SystemJS.import("aurelia-bootstrapper")
+      .catch(function (err) { console.log(err); });
+  </script>
+  <script>
+    setTimeout(() => {
+      SystemJS.import("aurelia-app")
+        .then((au) => {
+          au.enhanceElements([
+            { tagName: 'test-element', bindingContext: { value: 'asdfasdf' } },
+            { tagName: 'af-input' }]
+          );
+        });
+    }, 0);
+  </script>
 </body>
 
 </html>
